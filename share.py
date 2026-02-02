@@ -3,6 +3,8 @@ from pathlib import Path
 import os
 
 app = Flask(__name__, static_url_path='/')
+if not Path('./downloads').exists():
+    os.mkdir('downloads')
 filenames = os.listdir('./downloads')
 
 @app.route('/', methods=['GET', 'POST'])
