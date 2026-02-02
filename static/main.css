@@ -1,0 +1,63 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+.submission_form{
+    opacity: 0.7;
+    padding: 2em;
+    position: fixed;
+    bottom: 0;
+    width: 100dvw;
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+    background-color: antiquewhite;
+}
+.item{
+    justify-self: center;
+}
+input[type="file"]::file-selector-button {
+    padding: 0.6em 4em;
+}
+input{
+    padding: 0.6em 4em;
+}
+
+.links{
+    width: 100dvw;
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+    padding-bottom:8em;
+
+}
+.element{
+    width: 40%;
+    background-color: aquamarine;
+    justify-self: center;
+    margin: 1em;
+    text-align: center;
+    padding: 0.5em;
+    border-radius: 3px;
+}
+
+@media(max-width:768px){
+    .element{
+        width: 90%;
+    }
+    .item{
+        width: 100%;
+        display: grid;
+        grid-template-columns: minmax(0,1fr);
+    }
+   
+input{
+    width: 80%;
+    padding: 0.5em;
+    justify-self: center;
+    margin-bottom: 0.2em;
+}
+    .links{
+        padding-bottom:9em;
+    }
+
+}
