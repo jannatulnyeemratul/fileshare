@@ -6,20 +6,25 @@ app = Flask(__name__, static_url_path='/')
 if not Path('./downloads').exists():
     os.mkdir('downloads')
 filenames = os.listdir('./downloads')
+messages = []
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
-        file = request.files['file']
-        file.save(Path.cwd()/'downloads'/file.filename)
-        filenames.append(file.filename)
-    return render_template('home.html', filenames = filenames)
+        if 'message' in request.form:
+            messages.append(request.form['message'])
+        elif 'file' in request.files:
+            file = request.files['file']
+            file.save(Path.cwd()/'downloads'/file.filename)
+            filenames.append(file.filename)
+
+    return render_template('home.html', filenames = filenames, messages = messages)
 
 @app.route('/download/<filename>')
 def download(filename):
     return send_from_directory(directory='./downloads', path=filename, as_attachment=True)
 
-@app.route('/delete')
+@app.route('/delete', methods=['POST', 'GET'])
 def delete():
     global filenames
     current_dir = Path.cwd() / 'downloads'

@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="/main.css">
 </head>
 <body>
+
+    <form action="/delete" method="post" class="delete">
+        <button class="del">Delete All Temporary Files</button>
+    </form>
+
     {% if filenames %}
         <div class="links">
         {% for file in filenames %}
@@ -13,7 +18,18 @@
         {%endfor%}
         <div>
     {% endif %}
+    
+    <form action="/" class="messages" method="post">
+        <input type="text" placeholder="Enter Your Message Here" class="specific" name="message">
+        <button class="b2">send</button>
+    </form>
 
+    <div class="message_block">
+    {%for message in messages%}
+        <div class="message">{{message}}</div>
+    {%endfor%}
+    </div>
+    
     <form action="{{url_for('home')}}" method="post" enctype="multipart/form-data" class="submission_form">
         <div class="item">
             <input type="file" name="file">

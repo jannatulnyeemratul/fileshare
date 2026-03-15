@@ -4,9 +4,10 @@
 }
 
 .submission_form{
+    position: sticky;
     opacity: 0.7;
     padding: 2em;
-    position: fixed;
+    margin-top: 1em;
     bottom: 0;
     width: 100dvw;
     display: grid;
@@ -39,7 +40,50 @@ input{
     padding: 0.5em;
     border-radius: 3px;
 }
+.delete{
+    text-align: center;
+    margin-top: 1em;
+    
+}
+.del{
+    
+    padding: 1.5em;
+    right: 0;
+    top: 0;
+}
 
+.messages{
+    margin-bottom: 1em;
+    position: sticky;
+    top: 0;
+    width: 100dvw;
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+}
+
+.specific{
+    margin: 10px;
+    height: 5dvh;
+    text-align: center;
+}
+.b2{
+    padding: 1em;
+    width: 10%;
+    justify-self: center;
+}
+.message_block{
+    width: 100dvw;
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+    row-gap: 0.2em;
+}
+.message{
+    width: 80%;
+    justify-self: center;
+    padding: 2em;
+    background-color: antiquewhite;
+    border-radius: 2px;
+}
 @media(max-width:768px){
     .element{
         width: 90%;
@@ -48,6 +92,9 @@ input{
         width: 100%;
         display: grid;
         grid-template-columns: minmax(0,1fr);
+    }
+    .b2{
+        width: 20%;
     }
    
 input{
