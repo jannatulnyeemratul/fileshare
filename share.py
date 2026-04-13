@@ -14,9 +14,10 @@ def home():
         if 'message' in request.form:
             messages.append(request.form['message'])
         elif 'file' in request.files:
-            file = request.files['file']
-            file.save(Path.cwd()/'downloads'/file.filename)
-            filenames.append(file.filename)
+            for file in request.files.getlist('file'):
+                if file.filename != '':
+                    file.save(Path.cwd()/'downloads'/file.filename)
+                    filenames.append(file.filename)
 
     return render_template('home.html', filenames = filenames, messages = messages)
 
